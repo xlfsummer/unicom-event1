@@ -1,5 +1,7 @@
 # unicon-event-1
 
+<img src="https://travis-ci.com/xlfsummer/unicom-event1.svg?branch=master" />
+
 > A Vue.js project
 
 ## Build Setup
