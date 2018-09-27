@@ -2,7 +2,7 @@
     <div class="page-input">
         <form @submit="formSubmit">
             <input name="name"/>
-            <input name="phone"/>
+            <input name="phone" type="tel"/>
             <select name="job" id="">
                 <option v-for="(job, index) in jobList" :key="index" :value="job">{{job}}</option>
             </select>
@@ -17,11 +17,11 @@ export default {
   data () {
     return {
       jobList: [
-        '网络建设岗',
-        '一线服务岗',
-        '服务支撑岗',
-        '市场营销岗',
-        '行政服务岗'
+        '网络建设',
+        '一线服务',
+        '服务支撑',
+        '市场营销',
+        '行政服务'
       ]
     }
   },
