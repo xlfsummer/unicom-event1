@@ -1,9 +1,9 @@
 <template>
     <div class="page-input">
-        <form>
-            <input/>
-            <input/>
-            <select name="" id="">
+        <form @submit="formSubmit">
+            <input name="name"/>
+            <input name="phone"/>
+            <select name="job" id="">
                 <option v-for="(job, index) in jobList" :key="index" :value="job">{{job}}</option>
             </select>
             <!-- 立即生成承诺书 -->
@@ -23,6 +23,21 @@ export default {
         '市场营销岗',
         '行政服务岗'
       ]
+    }
+  },
+  methods: {
+    formSubmit (ev) {
+      let form = ev.target
+      let name = form.name.value
+      let phone = form.phone.value
+      let job = form.job.value
+      this.$router.push({
+        name: 'card',
+        params: {
+          name, phone, job
+        }
+      })
+      ev.preventDefault()
     }
   }
 }
