@@ -2,6 +2,7 @@
   <div id="app">
     <main>
       <router-view></router-view>
+       <img src="/static/img/promise-card.png" hidden>
     </main>
   </div>
 </template>

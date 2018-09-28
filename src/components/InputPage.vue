@@ -1,9 +1,9 @@
 <template>
     <div class="page-input">
         <form @submit="formSubmit">
-            <input name="name"/>
-            <input name="phone" type="tel"/>
-            <select name="job" id="">
+            <input name="name" placeholder="请输入你的姓名"/>
+            <input name="phone" type="tel" placeholder="请输入你的手机号码"/>
+            <select name="job">
                 <option v-for="(job, index) in jobList" :key="index" :value="job">{{job}}</option>
             </select>
             <!-- 立即生成承诺书 -->
@@ -33,9 +33,9 @@ export default {
       let job = form.job.value
       this.$router.push({
         name: 'card',
-        params: {
+        query: {
           name, phone, job
-        }
+        },
       })
       ev.preventDefault()
     }
