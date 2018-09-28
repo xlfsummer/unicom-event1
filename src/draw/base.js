@@ -11,9 +11,8 @@
 
 /** @param {drawOption} canvas*/
 function setCanvasSize({ canvas, background, info }) {
-    let imgRatio = background.naturalWidth / background.naturalHeight;
     canvas.width = background.naturalWidth;
-    let H = canvas.height = background.naturalHeight;
+    canvas.height = background.naturalHeight;
 }
 
 /**
@@ -35,6 +34,8 @@ function drawCard({ canvas, background, info }) {
     ctx.font = `bold ${p(5)}px 'Microsoft Yahei'`
     ctx.fillStyle = "black"
     ctx.fillText(info.name,  p(71), p(142.5));
+
+    return Promise.resolve(canvas.toDataURL("image/png"));
 }
 
 function getPercentLength(length, percent){

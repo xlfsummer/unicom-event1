@@ -1,7 +1,8 @@
 <template>
      <div class="page-card">
-        <canvas id="canvas" ref="canvas"></canvas>
-        <img :src="imgSrc" hidden ref="cardTemplate"/>
+        <img class="promise-card" v-if="cardSrc" :src="cardSrc"/>
+        <canvas class="canvas" ref="canvas"></canvas>
+        <img v-once :src="imgSrc" hidden ref="cardTemplate"/>
         <div v-if="drawDone" class="instruction">&lt;长按保存你的承诺书&gt;</div>
     </div>
 </template>
@@ -14,7 +15,8 @@ export default {
   data() {
     return {
       drawDone: false,
-      imgSrc: imgSrc
+      imgSrc: imgSrc,
+      cardSrc: ""
     };
   },
   created() {
@@ -28,8 +30,9 @@ export default {
     : img.onload = _ => this.draw();
   },
   methods: {
-    draw(){
-      drawSvc.drawCard({
+    async draw(){
+      debugger;
+      this.cardSrc = await drawSvc.drawCard({
         background: this.$refs.cardTemplate,
         canvas: this.$refs.canvas,
         info: this.$route.query
@@ -47,8 +50,21 @@ export default {
   flex-direction: column;
   position: relative;
 }
-#canvas{
+
+.canvas{
   display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.promise-card{
+  display: block;
+  position: absolute;
+  z-index: 0;
   margin-top: 20vw;
   width: 80vw;
   /* height: 120vw; */
@@ -61,5 +77,6 @@ export default {
   top: 136vw;
   color: #999;
   font-size: 2.1vw;
+  pointer-events: none; 
 }
 </style>
