@@ -2,7 +2,7 @@
      <div class="page-card">
         <canvas id="canvas" ref="canvas"></canvas>
         <img src="/static/img/promise-card.png" hidden ref="cardTemplate"/>
-        <div class="instruction">&lt;长按保存你的承诺书&gt;</div>
+        <div v-if="drawDone" class="instruction">&lt;长按保存你的承诺书&gt;</div>
     </div>
 </template>
 
@@ -12,6 +12,7 @@ import drawSvc from "../draw/base.js";
 export default {
   data() {
     return {
+      drawDone: false
     };
   },
   created() {
@@ -31,6 +32,7 @@ export default {
         canvas: this.$refs.canvas,
         info: this.$route.query
       })
+      this.drawDone = true
     }
   }
 };
@@ -56,5 +58,6 @@ export default {
   left: 55vw;
   top: 136vw;
   color: #999;
+  font-size: 2.1vw;
 }
 </style>

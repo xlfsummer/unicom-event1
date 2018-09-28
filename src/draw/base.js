@@ -12,10 +12,8 @@
 /** @param {drawOption} canvas*/
 function setCanvasSize({ canvas, background, info }) {
     let imgRatio = background.naturalWidth / background.naturalHeight;
-    let W = canvas.getBoundingClientRect().width;
-    canvas.width = Math.ceil(W);
-    let H = canvas.height = Math.ceil(W / imgRatio);
-    canvas.style.height = H/window.innerWidth * 100 + "vw"
+    canvas.width = background.naturalWidth;
+    let H = canvas.height = background.naturalHeight;
 }
 
 /**
@@ -29,12 +27,12 @@ function drawCard({ canvas, background, info }) {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#2070d0"
-    ctx.font = "bold 3vw 'Microsoft Yahei'"
+    ctx.font = `bold ${p(4)}px 'Microsoft Yahei'`
     ctx.fillText(info.job,   p(38),   p(45.5));
     ctx.fillText(info.name,  p(62.5), p(45.5));
     ctx.fillText(info.phone, p(28),   p(52));
 
-    ctx.font = "bold 4vw 'Microsoft Yahei'"
+    ctx.font = `bold ${p(5)}px 'Microsoft Yahei'`
     ctx.fillStyle = "black"
     ctx.fillText(info.name,  p(71), p(142.5));
 }
