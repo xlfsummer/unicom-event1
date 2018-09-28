@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     async draw(){
-      debugger;
       this.cardSrc = await drawSvc.drawCard({
         background: this.$refs.cardTemplate,
         canvas: this.$refs.canvas,
