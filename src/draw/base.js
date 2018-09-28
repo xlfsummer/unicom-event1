@@ -27,7 +27,7 @@ function drawCard({ canvas, background, info }) {
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#2070d0"
-    ctx.font = `bold ${p(4)}px 'Microsoft Yahei'`
+    ctx.font = `bold ${p(3.8)}px 'Microsoft Yahei'`
     ctx.fillText(info.job,   p(38),   p(45.5));
     ctx.fillText(info.name,  p(62.5), p(45.5));
     ctx.fillText(info.phone, p(28),   p(52));

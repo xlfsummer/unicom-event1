@@ -1,18 +1,20 @@
 <template>
      <div class="page-card">
         <canvas id="canvas" ref="canvas"></canvas>
-        <img src="/static/img/promise-card.png" hidden ref="cardTemplate"/>
+        <img :src="imgSrc" hidden ref="cardTemplate"/>
         <div v-if="drawDone" class="instruction">&lt;长按保存你的承诺书&gt;</div>
     </div>
 </template>
 
 <script>
 import drawSvc from "../draw/base.js";
+import imgSrc from "../assets/promise-card.png";
 
 export default {
   data() {
     return {
-      drawDone: false
+      drawDone: false,
+      imgSrc: imgSrc
     };
   },
   created() {

@@ -2,14 +2,16 @@
   <div id="app">
     <main>
       <router-view></router-view>
-       <img src="/static/img/promise-card.png" hidden>
     </main>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  created(){
+    __webpack_public_path__ + "static/promise-card.png"
+  }
 }
 </script>
 
