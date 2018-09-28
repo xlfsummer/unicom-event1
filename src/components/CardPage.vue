@@ -9,7 +9,7 @@
 
 <script>
 import drawSvc from "../draw/base.js";
-import imgSrc from "../assets/promise-card.png";
+import imgSrc from "../../static/img/promise-card.png";
 
 export default {
   data() {
