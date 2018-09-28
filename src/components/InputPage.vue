@@ -27,17 +27,28 @@ export default {
   },
   methods: {
     formSubmit (ev) {
-      let form = ev.target
-      let name = form.name.value
-      let phone = form.phone.value
-      let job = form.job.value
+      ev.preventDefault();
+
+      let form = ev.target;
+      let name = form.name.value;
+      let phone = form.phone.value;
+      let job = form.job.value;
+
+      if(!name){
+        this.$toasted.show('请填写姓名');
+        return;
+      }
+      if(!phone){
+        this.$toasted.show("请填写手机号码");
+        return;
+      }
+
       this.$router.push({
         name: 'card',
         query: {
           name, phone, job
         },
       })
-      ev.preventDefault()
     }
   }
 }
