@@ -20,8 +20,7 @@ export default {
         '网络建设',
         '一线服务',
         '服务支撑',
-        '市场营销',
-        '行政服务'
+        '市场营销'
       ]
     }
   },
@@ -40,6 +39,10 @@ export default {
       }
       if(!phone){
         this.$toasted.show("请填写手机号码");
+        return;
+      }
+      if(!/^\d{8,13}$/.test(phone)){
+        this.$toasted.show("手机号码无效");
         return;
       }
 

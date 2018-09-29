@@ -3,7 +3,7 @@
         <img class="promise-card" v-if="cardSrc" :src="cardSrc"/>
         <canvas class="canvas" ref="canvas"></canvas>
         <img v-once :src="imgSrc" hidden ref="cardTemplate"/>
-        <div v-if="drawDone" class="instruction">&lt;长按保存你的承诺书&gt;</div>
+        <div v-if="drawDone" class="instruction">&lt;长按保存&gt;</div>
     </div>
 </template>
 
@@ -72,7 +72,7 @@ export default {
 .instruction{
   display: block;
   position: absolute;
-  left: 55vw;
+  left: 54vw;
   top: 136vw;
   color: #999;
   font-size: 2.1vw;
